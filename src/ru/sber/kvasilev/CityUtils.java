@@ -2,6 +2,7 @@ package ru.sber.kvasilev;
 
 import java.io.IOException;
 import java.nio.file.Path;
+import java.text.MessageFormat;
 import java.util.*;
 
 /**
@@ -92,8 +93,7 @@ public class CityUtils {
                 indexOfMostPopulatedCity = i;
             }
         }
-        System.out.println("[" + indexOfMostPopulatedCity + "]"
-                + " = " + maxPopulation);
+        System.out.println(MessageFormat.format("[{0}] = {1}", indexOfMostPopulatedCity, maxPopulation));
     }
 
 }
