@@ -48,7 +48,7 @@ public class CityUtils {
         if(lineScanner.hasNext()) {
             foundation = lineScanner.next();
         }
-
+        lineScanner.close();
         return new City(name, region, distinct, population, foundation);
     }
 
