@@ -1,9 +1,18 @@
-public class City {
+package ru.sber.kvasilev;
 
+/**
+ * Класс описывающий объект типа City
+ */
+public class City {
+    //Наименование города
     private String name;
+    //Регион
     private String region;
+    //Федеральный округ
     private String distinct;
+    //Население
     private long population;
+    //Дата основания или первое упоминание
     private String foundation;
 
     public City(String name, String region, String distinct, long population, String foundation) {
