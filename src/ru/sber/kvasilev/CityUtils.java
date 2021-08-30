@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.text.MessageFormat;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Класс содержит статические методы, необходимые для обработки данных
@@ -96,4 +97,16 @@ public class CityUtils {
         System.out.println(MessageFormat.format("[{0}] = {1}", indexOfMostPopulatedCity, maxPopulation));
     }
 
+    /**
+     * Нахождение количества городов в каждом регионе
+     *
+     * @param listOfCities
+     */
+    public static void countCitiesInDistinct (List<City> listOfCities) {
+        Map<String, Long> resultMap = listOfCities.stream()
+                .collect(Collectors.groupingBy((City::getRegion), Collectors.counting()));
+        for(Map.Entry e : resultMap.entrySet()) {
+            System.out.println(MessageFormat.format("{0} - {1}", e.getKey(), e.getValue()));
+        }
+    }
 }
