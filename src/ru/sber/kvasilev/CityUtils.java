@@ -67,20 +67,18 @@ public class CityUtils {
      * Сортировка данных о городах по их наименованиям в алфавитном порядке
      *
      * @param listOfCities список городов
-     * @return список городов
      */
-    public static List<City> nameSorted (List<City> listOfCities) {
-        return listOfCities.stream().sorted(Comparator.comparing(City::getName)).collect(Collectors.toList());
+    public static void nameSorted (List<City> listOfCities) {
+        listOfCities.sort((o1, o2) -> o1.getName().compareToIgnoreCase(o2.getName()));
     }
 
     /**
      * Сортировка данных о городах по их федерольному округу и имени внутри федерального округа в алфавитном порядке
      *
      * @param listOfCities список городов
-     * @return список городов
      */
-    public static List<City> distinctNameSorted (List<City> listOfCities) {
-        return listOfCities.stream().sorted(Comparator.comparing(City::getDistinct).thenComparing(City::getName)).collect(Collectors.toList());
+    public static void distinctNameSorted (List<City> listOfCities) {
+        listOfCities.sort(Comparator.comparing(City::getDistinct).thenComparing(City::getName));
     }
 
 

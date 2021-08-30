@@ -8,7 +8,9 @@ public class Main {
     public static void main(String[] args) {
         List<City> listOfCities = parse();
         printCities(listOfCities);
-        printCities(nameSorted(listOfCities));
-        printCities(distinctNameSorted(listOfCities));
+        nameSorted(listOfCities);
+        printCities(listOfCities);
+        distinctNameSorted(listOfCities);
+        printCities(listOfCities);
     }
 }
