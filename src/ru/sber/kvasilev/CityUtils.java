@@ -3,8 +3,10 @@ package ru.sber.kvasilev;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 /**
  * Класс содержит статические методы, необходимые для обработки данных
@@ -60,4 +62,26 @@ public class CityUtils {
     public static void printCities (List<City> listOfCities) {
         listOfCities.forEach(System.out::println);
     }
+
+    /**
+     * Сортировка данных о городах по их наименованиям в алфавитном порядке
+     *
+     * @param listOfCities список городов
+     * @return список городов
+     */
+    public static List<City> nameSorted (List<City> listOfCities) {
+        return listOfCities.stream().sorted(Comparator.comparing(City::getName)).collect(Collectors.toList());
+    }
+
+    /**
+     * Сортировка данных о городах по их федерольному округу и имени внутри федерального округа в алфавитном порядке
+     *
+     * @param listOfCities список городов
+     * @return список городов
+     */
+    public static List<City> distinctNameSorted (List<City> listOfCities) {
+        return listOfCities.stream().sorted(Comparator.comparing(City::getDistinct).thenComparing(City::getName)).collect(Collectors.toList());
+    }
+
+
 }
