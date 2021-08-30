@@ -7,10 +7,7 @@ import static ru.sber.kvasilev.CityUtils.*;
 public class Main {
     public static void main(String[] args) {
         List<City> listOfCities = parse();
-        printCities(listOfCities);
-        nameSorted(listOfCities);
-        printCities(listOfCities);
-        distinctNameSorted(listOfCities);
-        printCities(listOfCities);
+
+        mostPopulatedCity(listOfCities);
     }
 }

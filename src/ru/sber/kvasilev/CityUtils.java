@@ -2,11 +2,7 @@ package ru.sber.kvasilev;
 
 import java.io.IOException;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Scanner;
-import java.util.stream.Collectors;
+import java.util.*;
 
 /**
  * Класс содержит статические методы, необходимые для обработки данных
@@ -81,5 +77,23 @@ public class CityUtils {
         listOfCities.sort(Comparator.comparing(City::getDistinct).thenComparing(City::getName));
     }
 
+    /**
+     * Нахождение города с наибольшим населением и его индекс
+     *
+     * @param listOfCities список городов
+     */
+    public static void mostPopulatedCity (List<City> listOfCities) {
+        City[] arrayOfCities = listOfCities.toArray(new City[0]);
+        long maxPopulation = arrayOfCities[0].getPopulation();
+        int indexOfMostPopulatedCity = 1;
+        for(int i = 1; i < arrayOfCities.length; i++) {
+            if(maxPopulation < arrayOfCities[i].getPopulation()) {
+                maxPopulation = arrayOfCities[i].getPopulation();
+                indexOfMostPopulatedCity = i;
+            }
+        }
+        System.out.println("[" + indexOfMostPopulatedCity + "]"
+                + " = " + maxPopulation);
+    }
 
 }
