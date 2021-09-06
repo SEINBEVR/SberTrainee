@@ -102,7 +102,7 @@ public class CityUtils {
      *
      * @param listOfCities
      */
-    public static void countCitiesInDistinct (List<City> listOfCities) {
+    public static void countCitiesInRegion (List<City> listOfCities) {
         Map<String, Long> resultMap = listOfCities.stream()
                 .collect(Collectors.groupingBy((City::getRegion), Collectors.counting()));
         for(Map.Entry e : resultMap.entrySet()) {

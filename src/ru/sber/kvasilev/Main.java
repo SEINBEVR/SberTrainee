@@ -8,6 +8,6 @@ public class Main {
     public static void main(String[] args) {
         List<City> listOfCities = parse();
 
-        countCitiesInDistinct(listOfCities);
+        countCitiesInRegion(listOfCities);
     }
 }
